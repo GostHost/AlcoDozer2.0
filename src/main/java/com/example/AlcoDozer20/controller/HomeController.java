@@ -25,4 +25,9 @@ public class HomeController {
         return "about";
     }
 
+    @GetMapping("/calendar")
+    public String calendar(Model model){
+        return "calendar";
+    }
+
 }
