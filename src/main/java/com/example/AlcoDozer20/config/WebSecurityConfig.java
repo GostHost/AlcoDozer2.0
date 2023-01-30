@@ -16,8 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-//    @Autowired
-//    UserService userService;
+
 
 
     @Bean
@@ -32,6 +31,7 @@ public class WebSecurityConfig {
                         .defaultSuccessUrl("/home", true)
                         .permitAll()
                 )
+                .csrf().disable()
                 .logout((logout) -> logout.permitAll());
 
         return http.build();

@@ -9,18 +9,19 @@ public class Drink {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name, strength;
+    private String name;
+    private double strength;
 
     public Drink() {
     }
 
-    public Drink(Long id, String name, String strength) {
+    public Drink(Long id, String name, double strength) {
         this.id = id;
         this.name = name;
         this.strength = strength;
     }
 
-    public Drink(String name, String strength) {
+    public Drink(String name, double strength) {
         this.name = name;
         this.strength = strength;
     }
@@ -41,11 +42,11 @@ public class Drink {
         this.name = name;
     }
 
-    public String getStrength() {
+    public double getStrength() {
         return strength;
     }
 
-    public void setStrength(String strength) {
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 }

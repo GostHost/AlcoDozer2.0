@@ -5,9 +5,7 @@ import com.example.AlcoDozer20.repository.DrinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class DrinkController {
@@ -27,8 +25,8 @@ public class DrinkController {
         return "add-drinks";
     }
 
-    @PostMapping("/drink/add")
-    public String drinkAddPost (@RequestParam String name, @RequestParam String strength, Model model){
+    @PostMapping(value = "/drink/add")
+    public String drinkAddPost (@RequestParam String name, @RequestParam double strength, Model model){
         Drink drink = new Drink(name, strength);
         drinkRepository.save(drink);
         return "redirect:/drink";

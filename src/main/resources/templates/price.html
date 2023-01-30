@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title> Напитки </title>
+  <title> Покупки </title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"/>
 </head>
@@ -9,13 +9,14 @@
 <header th:insert="~{blocks/header :: header}"></header>
 
 <div class="container mt-5">
-  <h1>Напитки</h1>
-  <div th:each="el : ${drinks}" class="alert alert-info mt-2">
+  <h1>Покупки</h1>
+  <div th:each="el : ${price}" class="alert alert-info mt-2">
     <a>Наименование:</a><h3 th:text="${el.name}"></h3>
-    <a>Крепость(%):</a><p th:text="${el.strength}"></p>
+    <a>Стоимость:</a><p th:text="${el.price}"></p>
+    <a>Дата покупки:</a><p th:text="${el.date}"></p>
   </div>
   <div>
-    <a href="/drink/add" button type="submit" class="btn btn-success">Добавить напиток</a>
+    <a href="/price/add" button type="submit" class="btn btn-success">Добавить покупку</a>
   </div>
 </div>
 <footer th:insert="~{blocks/footer :: footer}"></footer>
