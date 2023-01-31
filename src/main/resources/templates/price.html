@@ -12,8 +12,12 @@
   <h1>Покупки</h1>
   <div th:each="el : ${price}" class="alert alert-info mt-2">
     <a>Наименование:</a><h3 th:text="${el.name}"></h3>
-    <a>Стоимость:</a><p th:text="${el.price}"></p>
+    <a>Стоимость за шт.:</a><p th:text="${el.price} + ' руб.'"></p>
+    <a>Стоимость:</a><p th:text="${el.sum} + ' руб.'"></p>
     <a>Дата покупки:</a><p th:text="${el.date}"></p>
+    <form th:action="'/price/'+${el.id}+'/remove'" method="post">
+      <button class="btn btn-warning" type="submit">Удалить</button>
+    </form>
   </div>
   <div>
     <a href="/price/add" button type="submit" class="btn btn-success">Добавить покупку</a>

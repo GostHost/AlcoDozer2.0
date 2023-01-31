@@ -18,6 +18,10 @@ public class Price {
     private String name;
     private double price;
 
+    private int quantity;
+
+    private double sum;
+
     private LocalDate date = LocalDate.now();
 
     public Price() {
@@ -28,11 +32,13 @@ public class Price {
         this.price = price;
     }
 
-    public Price(String name, double price, LocalDate date) {
+
+    public Price(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
-        this.date = date;
+        this.quantity = quantity;
     }
+
 
     public Long getId() {
         return id;
@@ -65,4 +71,22 @@ public class Price {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getSum() {
+        sum = price * quantity;
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
 }
