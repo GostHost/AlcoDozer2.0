@@ -12,7 +12,7 @@
   <h1>Напитки</h1>
   <div th:each="el : ${drinks}" class="alert alert-info mt-2">
     <a>Наименование:</a><h3 th:text="${el.name}"></h3>
-    <a>Крепость(%):</a><p th:text="${el.strength}"></p>
+    <p th:text="'Крепость(%): '+${el.strength}"></p>
   </div>
   <div>
     <a href="/drink/add" button type="submit" class="btn btn-success">Добавить напиток</a>

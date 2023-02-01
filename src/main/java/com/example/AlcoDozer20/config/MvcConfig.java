@@ -1,6 +1,7 @@
 package com.example.AlcoDozer20.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,5 +13,10 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/home").setViewName("home");
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/styles/css/**").addResourceLocations("classpath:/static/css/");
     }
 }

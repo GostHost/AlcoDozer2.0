@@ -7,6 +7,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface PriceRepository extends CrudRepository<Price, Long> {
-    List <Price> findAllByDateBetweenWeek (LocalDate first, LocalDate second);
+    List<Price> findAllByDateBetween (LocalDate first, LocalDate second);
 
 }

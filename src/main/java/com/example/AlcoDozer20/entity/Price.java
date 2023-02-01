@@ -1,12 +1,10 @@
 package com.example.AlcoDozer20.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Price {
@@ -21,6 +19,9 @@ public class Price {
     private int quantity;
 
     private double sum;
+
+    @Transient
+    List<Price> list;
 
     private LocalDate date = LocalDate.now();
 
