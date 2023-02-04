@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class HomeController {
 
@@ -31,10 +34,10 @@ public class HomeController {
     }
 
     @GetMapping("/calendar")
-    public String calendar(  Model model){
+    public Iterable<Price> calendar(Model model){
         Iterable<Price> price = priceRepository.findAll();
         model.addAttribute("price", price);
-        return "calendar";
+        return price;
     }
 
 }
