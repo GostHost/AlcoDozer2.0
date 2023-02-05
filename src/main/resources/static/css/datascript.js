@@ -1,10 +1,10 @@
 
-                $(document).ready(function() {
+                jQuery(document).ready(function($) {
 
-                $.get('/calendar', function(data) {
+                $.get('/test', function(data) {
                     console.log(data);
 
-                    let table = "<table border='1>";
+                    let table = "<table border='1'>";
 
                     for (i = 0; i <data.length; i++) {
                     table = table +

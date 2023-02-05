@@ -5,8 +5,7 @@ import com.example.AlcoDozer20.repository.PriceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +37,19 @@ public class HomeController {
         Iterable<Price> price = priceRepository.findAll();
         model.addAttribute("price", price);
         return price;
+    }
+
+    @GetMapping("/testing")
+    public String viewTest (){
+        return "test";
+    }
+
+
+    @PostMapping("/testing")
+    public List<Price> getTest(){
+        List<Price> schedule = new ArrayList<>();
+        priceRepository.findAll().forEach(schedule :: add);
+        return schedule;
     }
 
 }

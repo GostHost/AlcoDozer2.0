@@ -1,7 +1,7 @@
 var popCanvas = document.getElementById("myChart");
 
 var barChart = new Chart(popCanvas, {
-  type: 'bar',
+  type: 'line',
   data: {
     labels: [[${price}], "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
     datasets: [{
