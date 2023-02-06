@@ -39,17 +39,22 @@ public class HomeController {
         return price;
     }
 
-    @GetMapping("/testing")
-    public String viewTest (){
+
+    @GetMapping("/test")
+    public String getTest(){
         return "test";
     }
 
-
-    @PostMapping("/testing")
-    public List<Price> getTest(){
-        List<Price> schedule = new ArrayList<>();
-        priceRepository.findAll().forEach(schedule :: add);
+    @PostMapping("/calendar")
+    @ResponseBody
+    public Iterable<Price> postTest(){
+        Iterable<Price> schedule = priceRepository.findAll();
         return schedule;
     }
-
 }
+
+
+
+
+
+
