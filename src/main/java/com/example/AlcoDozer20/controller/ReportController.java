@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,11 +22,65 @@ public class ReportController {
     @Autowired
     PriceService priceService;
 
-    @GetMapping("/calendar/weekreport")
-    public String weekReport (Model model){
+
+    @GetMapping("/weekreport")
+    public Iterable<Price> week(Model model){
         Iterable<Price> price = priceService.getWeekDate();
         model.addAttribute("price", price);
-        return "week-report";
+        return price;
+    }
+
+
+    @PostMapping("/weekreport")
+    @ResponseBody
+    public Iterable<Price> postWeekReport(){
+        Iterable<Price> schedule = priceService.getWeekDate();
+        return schedule;
+    }
+
+    @GetMapping("/monthreport")
+    public Iterable<Price> month(Model model){
+        Iterable<Price> price = priceService.getMonthDate();
+        model.addAttribute("price", price);
+        return price;
+    }
+
+
+    @PostMapping("/monthreport")
+    @ResponseBody
+    public Iterable<Price> postMonthReport(){
+        Iterable<Price> schedule = priceService.getMonthDate();
+        return schedule;
+    }
+
+    @GetMapping("/quartreport")
+    public Iterable<Price> quart(Model model){
+        Iterable<Price> price = priceService.getQuartDate();
+        model.addAttribute("price", price);
+        return price;
+    }
+
+
+    @PostMapping("/quartreport")
+    @ResponseBody
+    public Iterable<Price> postQuartReport(){
+        Iterable<Price> schedule = priceService.getQuartDate();
+        return schedule;
+    }
+
+    @GetMapping("/yearreport")
+    public Iterable<Price> year(Model model){
+        Iterable<Price> price = priceService.getYearDate();
+        model.addAttribute("price", price);
+        return price;
+    }
+
+
+    @PostMapping("/yearreport")
+    @ResponseBody
+    public Iterable<Price> postYearReport(){
+        Iterable<Price> schedule = priceService.getYearDate();
+        return schedule;
     }
 
 

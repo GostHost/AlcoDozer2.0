@@ -23,4 +23,25 @@ public class PriceService {
         List<Price> weekPriceList = priceRepository.findAllByDateBetween(first, second);
         return weekPriceList;
     }
+
+    public List<Price> getMonthDate (){
+        LocalDate second = LocalDate.now();
+        LocalDate first = second.minusMonths(1);
+        List<Price> monthPriceList = priceRepository.findAllByDateBetween(first, second);
+        return monthPriceList;
+    }
+
+    public List<Price> getQuartDate (){
+        LocalDate second = LocalDate.now();
+        LocalDate first = second.minusMonths(3);
+        List<Price> quartPriceList = priceRepository.findAllByDateBetween(first, second);
+        return quartPriceList;
+    }
+
+    public List<Price> getYearDate (){
+        LocalDate second = LocalDate.now();
+        LocalDate first = second.minusYears(1);
+        List<Price> yearPriceList = priceRepository.findAllByDateBetween(first, second);
+        return yearPriceList;
+    }
 }

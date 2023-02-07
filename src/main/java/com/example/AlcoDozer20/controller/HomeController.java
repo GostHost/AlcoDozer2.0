@@ -39,12 +39,6 @@ public class HomeController {
         return price;
     }
 
-
-    @GetMapping("/test")
-    public String getTest(){
-        return "test";
-    }
-
     @PostMapping("/calendar")
     @ResponseBody
     public Iterable<Price> postTest(){
