@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface PriceRepository extends CrudRepository<Price, Long> {
     List<Price> findAllByDateBetween (LocalDate first, LocalDate second);
-    List<Price> findAll();
+
 
 }

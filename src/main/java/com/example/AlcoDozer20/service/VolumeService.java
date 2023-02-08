@@ -46,4 +46,12 @@ public class VolumeService {
         return yearPromList;
     }
 
+    public double getSumVolume (Iterable <Volume> list){
+        double sum = 0;
+        for (Volume el : list){
+            sum = sum + ((el.getVolume()/1000)*el.getStrength()*0.789);
+        }
+        return (double)Math.round(sum * 10d) / 10d;
+    }
+
 }

@@ -40,6 +40,8 @@ public class PromController {
     @GetMapping("/weekprom")
     public Iterable<Volume> weekProm(Model model){
         Iterable<Volume> volume = volumeService.getWeekProm();
+        double volumes = volumeService.getSumVolume(volume);
+        model.addAttribute("volumes", volumes);
         model.addAttribute("volume", volume);
         return volume;
     }
@@ -55,6 +57,8 @@ public class PromController {
     @GetMapping("/monthprom")
     public Iterable<Volume> monthProm(Model model){
         Iterable<Volume> volume = volumeService.getMonthProm();
+        double volumes = volumeService.getSumVolume(volume);
+        model.addAttribute("volumes", volumes);
         model.addAttribute("volume", volume);
         return volume;
     }
@@ -70,6 +74,8 @@ public class PromController {
     @GetMapping("/quartprom")
     public Iterable<Volume> quartProm(Model model){
         Iterable<Volume> volume = volumeService.getQuartProm();
+        double volumes = volumeService.getSumVolume(volume);
+        model.addAttribute("volumes", volumes);
         model.addAttribute("volume", volume);
         return volume;
     }
@@ -85,6 +91,8 @@ public class PromController {
     @GetMapping("/yearprom")
     public Iterable<Volume> yearProm(Model model){
         Iterable<Volume> volume = volumeService.getYearProm();
+        double volumes = volumeService.getSumVolume(volume);
+        model.addAttribute("volumes", volumes);
         model.addAttribute("volume", volume);
         return volume;
     }

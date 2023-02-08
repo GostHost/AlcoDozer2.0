@@ -25,10 +25,9 @@ public class ReportController {
     @GetMapping("/weekreport")
     public Iterable<Price> week(Model model){
         Iterable<Price> price = priceService.getWeekDate();
-        List<Price> p2 = priceRepository.findAll();
-        double prices = priceService.getSumPrice(p2);
-        model.addAttribute("price", price);
+        double prices = priceService.getSumPrice(price);
         model.addAttribute("prices", prices);
+        model.addAttribute("price", price);
         return price;
     }
 
@@ -43,6 +42,8 @@ public class ReportController {
     @GetMapping("/monthreport")
     public Iterable<Price> month(Model model){
         Iterable<Price> price = priceService.getMonthDate();
+        double prices = priceService.getSumPrice(price);
+        model.addAttribute("prices", prices);
         model.addAttribute("price", price);
         return price;
     }
@@ -58,6 +59,8 @@ public class ReportController {
     @GetMapping("/quartreport")
     public Iterable<Price> quart(Model model){
         Iterable<Price> price = priceService.getQuartDate();
+        double prices = priceService.getSumPrice(price);
+        model.addAttribute("prices", prices);
         model.addAttribute("price", price);
         return price;
     }
@@ -73,6 +76,8 @@ public class ReportController {
     @GetMapping("/yearreport")
     public Iterable<Price> year(Model model){
         Iterable<Price> price = priceService.getYearDate();
+        double prices = priceService.getSumPrice(price);
+        model.addAttribute("prices", prices);
         model.addAttribute("price", price);
         return price;
     }

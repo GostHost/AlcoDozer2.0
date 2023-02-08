@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -46,19 +47,11 @@ public class PriceService {
         return yearPriceList;
     }
 
-    public double getSumPrice (List<Price> priceList){
-        double sum = 0;
-        Price price = new Price(priceList);
-        ArrayList<Double> arr = new ArrayList<>();
-        for (int i = 0; i < priceList.size(); i++){
-            arr.add(price.getSum());
-        }
-//        for (int i = 0; i < priceList.size(); i++){
-//            sum = sum + price.getSum();
-//        }
 
-        for (int i = 0; i < arr.size(); i++){
-            sum = sum + arr.get(i);
+    public double getSumPrice (Iterable <Price> list){
+        double sum = 0;
+        for (Price el : list){
+            sum = sum + el.getSum();
         }
         return sum;
     }
