@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,5 +44,22 @@ public class PriceService {
         LocalDate first = second.minusYears(1);
         List<Price> yearPriceList = priceRepository.findAllByDateBetween(first, second);
         return yearPriceList;
+    }
+
+    public double getSumPrice (List<Price> priceList){
+        double sum = 0;
+        Price price = new Price(priceList);
+        ArrayList<Double> arr = new ArrayList<>();
+        for (int i = 0; i < priceList.size(); i++){
+            arr.add(price.getSum());
+        }
+//        for (int i = 0; i < priceList.size(); i++){
+//            sum = sum + price.getSum();
+//        }
+
+        for (int i = 0; i < arr.size(); i++){
+            sum = sum + arr.get(i);
+        }
+        return sum;
     }
 }

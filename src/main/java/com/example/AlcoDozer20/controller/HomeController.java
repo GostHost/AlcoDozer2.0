@@ -45,6 +45,11 @@ public class HomeController {
         Iterable<Price> schedule = priceRepository.findAll();
         return schedule;
     }
+
+    @GetMapping("/memo")
+    public String memo(){
+        return "memo";
+    }
 }
 
 

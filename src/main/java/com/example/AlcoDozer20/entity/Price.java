@@ -40,6 +40,9 @@ public class Price {
         this.quantity = quantity;
     }
 
+    public Price(List<Price> list) {
+        this.list = list;
+    }
 
     public Long getId() {
         return id;
@@ -85,6 +88,7 @@ public class Price {
         sum = price * quantity;
         return sum;
     }
+
 
     public void setSum(double sum) {
         this.sum = sum;

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -26,7 +25,10 @@ public class ReportController {
     @GetMapping("/weekreport")
     public Iterable<Price> week(Model model){
         Iterable<Price> price = priceService.getWeekDate();
+        List<Price> p2 = priceRepository.findAll();
+        double prices = priceService.getSumPrice(p2);
         model.addAttribute("price", price);
+        model.addAttribute("prices", prices);
         return price;
     }
 
